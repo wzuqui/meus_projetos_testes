@@ -1,0 +1,18 @@
+:host {
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+nav {
+  background: #151515;
+  border-bottom: 2px solid #000;
+  display: flex;
+  height: 52px;
+}
+
+section {
+  background: #151515;
+  flex: 1;
+}

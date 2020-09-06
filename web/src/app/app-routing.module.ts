@@ -1,10 +1,30 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouteReuseStrategy, RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { CustomReuseStrategy } from './custom-reuse-strategy';
+
+import { PessoasComponent } from './pages/pessoas/pessoas.component';
+import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'tela-inicial',
+  },
+  {
+    path: 'tela-inicial',
+    component: TelaInicialComponent,
+  },
+  {
+    path: 'pessoas',
+    component: PessoasComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: CustomReuseStrategy }],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
