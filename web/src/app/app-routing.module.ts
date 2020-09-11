@@ -5,6 +5,7 @@ import { CustomReuseStrategy } from './custom-reuse-strategy';
 
 import { PessoasComponent } from './pages/pessoas/pessoas.component';
 import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
+import { GrafoComponent } from './pages/grafo/grafo.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
     path: 'pessoas',
     component: PessoasComponent,
   },
+  {
+    path: 'grafo',
+    component: GrafoComponent
+  }
 ];
 
 @NgModule({

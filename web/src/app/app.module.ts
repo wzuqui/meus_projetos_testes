@@ -8,7 +8,7 @@ import { AbaComponent } from './componentes/aba/aba.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AbaComponent
+    AbaComponent,
   ],
   imports: [
     BrowserModule,
