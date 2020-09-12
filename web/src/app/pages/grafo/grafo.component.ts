@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
+
+import ArrayStore from 'devextreme/data/array_store';
+import { GrafoService } from './grafo.service';
+
 
 @Component({
   selector: 'app-grafo',
   templateUrl: './grafo.component.html',
-  styleUrls: ['./grafo.component.scss']
+  styleUrls: ['./grafo.component.scss'],
 })
-export class GrafoComponent implements OnInit {
+export class GrafoComponent implements AfterViewInit {
+  macros: ArrayStore;
+  links: ArrayStore;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(grafoService: GrafoService) {
+    this.macros = new ArrayStore({
+      key: 'this',
+      data: grafoService.obterMacros(),
+    });
+    this.links = new ArrayStore({
+      key: 'this',
+      data: grafoService.obterLinks(),
+    });
   }
 
+  ngAfterViewInit(): void {
+  }
 }

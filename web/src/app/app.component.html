@@ -3,6 +3,12 @@
     <li><a routerLink="tela-inicial">Tela Inicial</a></li>
     <li><a routerLink="pessoas">Pessoas</a></li>
     <li><a routerLink="grafo">Grafo</a></li>
+    <li><a routerLink="dashboard">Dashboard</a></li>
+  </ul>
+  <ul>
+    <li>
+      <dx-switch [value]="true" (onValueChanged)="acaoTrocar($event)"></dx-switch>
+    </li>
   </ul>
 </nav>
 <section>

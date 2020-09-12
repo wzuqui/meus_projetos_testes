@@ -3,4 +3,19 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  > section {
+    flex: 1;
+  }
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  > ul > li {
+    display: inline-block;
+    padding: 0px .5rem;
+  }
 }
