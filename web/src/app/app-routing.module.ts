@@ -9,8 +9,9 @@ import {
   DxSortableModule,
 } from 'devextreme-angular';
 import { GridsterModule } from 'angular-gridster2';
-import { CustomReuseStrategy } from './custom-reuse-strategy';
+import { NgxdModule } from '@ngxd/core';
 
+import { CustomReuseStrategy } from './custom-reuse-strategy';
 import { GrafoComponent } from './pages/grafo/grafo.component';
 import { PessoasComponent } from './pages/pessoas/pessoas.component';
 import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
@@ -61,6 +62,7 @@ const routes: Routes = [
     DxSortableModule,
     DxTileViewModule,
     GridsterModule,
+    NgxdModule,
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],

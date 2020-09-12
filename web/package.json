@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~10.1.0",
     "@angular/platform-browser-dynamic": "~10.1.0",
     "@angular/router": "~10.1.0",
+    "@ngxd/core": "^10.0.0",
     "angular-gridster2": "^10.1.5",
     "devexpress-diagram": "^1.0.14",
     "devextreme": "20.1",
