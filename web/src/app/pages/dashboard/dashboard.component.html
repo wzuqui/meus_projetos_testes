@@ -1,7 +1,8 @@
 <gridster [options]="gridsterConfig">
   <gridster-item class="dx-tile" [item]="item" *ngFor="let item of dashboard">
     <div>
-    teste
+      {{ item.label }}
+      <ng-container *ngxComponentOutlet="item.component; context: { item: item}"></ng-container>
     </div>
   </gridster-item>
 </gridster>

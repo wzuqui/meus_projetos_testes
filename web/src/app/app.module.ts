@@ -7,11 +7,16 @@ import { DxSwitchModule } from 'devextreme-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AbaComponent } from './componentes/aba/aba.component';
+import { GraficoComponent } from './componentes/dashboard/grafico/grafico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AbaComponent,
+    GraficoComponent,
+  ],
+  entryComponents: [
+    GraficoComponent
   ],
   imports: [
     BrowserModule,
