@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-tela-inicial',
@@ -8,9 +7,4 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./tela-inicial.component.scss'],
 })
 export class TelaInicialComponent {
-  paginas: Routes;
-
-  constructor(private router: Router) {
-    this.paginas = this.router.config;
-  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, Routes } from '@angular/router';
 
 import themes from 'devextreme/ui/themes';
 
@@ -8,7 +9,11 @@ import themes from 'devextreme/ui/themes';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  paginas: Routes;
+
+  constructor(private router: Router) {
+    this.paginas = this.router.config;
+  }
 
   public acaoTrocar({ value }: { value: boolean }): void {
     const tema = value ? 'generic.dark.compact' : 'generic.light.compact';

@@ -22,7 +22,8 @@ gridsterConfig: GridsterConfig;
       },
       gridType: 'fixed',
       fixedColWidth: 100,
-      fixedRowHeight: 100
+      fixedRowHeight: 100,
+      displayGrid: 'none'
     };
     this.dashboard = [
       {cols: 1, rows: 1, x: 0, y: 0, label: 'Tela inicial'},

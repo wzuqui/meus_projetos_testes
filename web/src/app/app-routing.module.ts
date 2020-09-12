@@ -25,18 +25,30 @@ const routes: Routes = [
   {
     path: 'tela-inicial',
     component: TelaInicialComponent,
+    data: {
+      titulo: 'Tela inicial'
+    },
   },
   {
     path: 'pessoas',
     component: PessoasComponent,
+    data: {
+      titulo: 'Pessoas'
+    },
   },
   {
     path: 'grafo',
     component: GrafoComponent,
+    data: {
+      titulo: 'Grafo'
+    },
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    data: {
+      titulo: 'Dashboard'
+    },
   },
 ];
 
