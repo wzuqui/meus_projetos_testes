@@ -1,0 +1,20 @@
+<dx-diagram #diagram id="diagram">
+  <dxo-nodes
+    [dataSource]="macros"
+    keyExpr="id"
+    textExpr="nome"
+    typeExpr="tipo"
+  >
+    <dxo-auto-layout type="tree"></dxo-auto-layout>
+  </dxo-nodes>
+  <dxo-edges
+    [dataSource]="links"
+    keyExpr="id"
+    fromExpr="de"
+    toExpr="para"
+  ></dxo-edges>
+  <dxo-toolbox>
+    <dxi-group category="general" title="General"></dxi-group>
+  </dxo-toolbox>
+</dx-diagram>
+>

@@ -1,0 +1,18 @@
+<nav>
+  <ul>
+    <li *ngFor="let pagina of paginas">
+      <a [routerLink]="['/', pagina.path]">{{ pagina.data?.titulo }}</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <dx-switch
+        [value]="true"
+        (onValueChanged)="acaoTrocar($event)"
+      ></dx-switch>
+    </li>
+  </ul>
+</nav>
+<section>
+  <router-outlet></router-outlet>
+</section>
