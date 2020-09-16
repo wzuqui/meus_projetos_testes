@@ -58,15 +58,19 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit():void {
+  ngAfterViewInit(): void {
     this.mapa = L.map(this.mapaElementRef.nativeElement, {
       center: L.latLng([-13.7881849, -59.3213139]),
       zoom: 3,
     });
-    this.tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    });
+    this.tiles = L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }
+    );
     this.tiles.addTo(this.mapa);
   }
 
@@ -86,16 +90,25 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private _adicionarPedagiosMapa(pedagios: PedagioNomeCusto[]): void {
-    this.pedagiosMarker?.map(p => p.remove());
+  private _adicionarPedagiosMapa(pedagiosEncontrados: PedagioNomeCusto[]): void {
+    this.pedagiosMarker?.map((p) => p.remove());
 
-    this.pedagiosMarker = pedagios.map(({pedagio, nome, custo}) => {
-      const marcador = L.marker({
-        lat: Number(pedagio.lat),
-        lng: Number(pedagio.lon)
+    this.pedagiosMarker = pedagiosEncontrados.map(({ pedagio, nome, custo }) => {
+      const icon = L.AwesomeMarkers.icon({
+        icon: 'dollar',
+        markerColor: 'blue',
+        prefix: 'fa',
+        iconColor: 'white',
       });
+      const marcador = new L.Marker<L.DivIcon>(
+        [Number(pedagio.lat), Number(pedagio.lon)],
+        {
+          icon,
+        }
+      );
       marcador.bindTooltip(`${nome} - ${custo}`);
       marcador.addTo(this.mapa);
+
       return marcador;
     });
   }
@@ -108,7 +121,7 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
     const decode: L.LatLngExpression[] = polyline.decode(geometry) as any;
     this.polyline = L.polyline(decode);
     this.polyline.addTo(this.mapa);
-    this.mapa.fitBounds(this.polyline.getBounds())
+    this.mapa.fitBounds(this.polyline.getBounds());
   }
 
   private _obterPedagios(nodes: number[]): PedagioNomeCusto[] {
