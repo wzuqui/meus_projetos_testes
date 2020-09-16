@@ -1,0 +1,87 @@
+<div class="form">
+  <div class="dx-fieldset">
+    <div class="dx-field">
+      <div class="dx-field-label">Roterizador de pedágios</div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Origem</div>
+      <div class="dx-field-value">
+        <dx-select-box
+          #origem
+          [dataSource]="origemDataSource"
+          displayExpr="display_name"
+          [searchMode]="'contains'"
+          [searchExpr]="'display_name'"
+          [minSearchLength]="0"
+          [searchEnabled]="true"
+          [placeholder]="'Origem'"
+          [noDataText]="'Nenhuma origem encontrada'"
+        ></dx-select-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Destino</div>
+      <div class="dx-field-value">
+        <dx-select-box
+          #destino
+          [dataSource]="destinoDataSource"
+          displayExpr="display_name"
+          [searchMode]="'contains'"
+          [searchExpr]="'display_name'"
+          [minSearchLength]="0"
+          [searchEnabled]="true"
+          [placeholder]="'Destino'"
+          [noDataText]="'Nenhum destino encontrado'"
+        ></dx-select-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label"></div>
+      <div class="dx-field-value">
+        <dx-button
+          stylingMode="contained"
+          text="Calcular pedágios"
+          type="success"
+          [width]="120"
+          (onClick)="acaoCalcular(origem.value, destino.value)"
+        >
+        </dx-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div #mapa style="height: 600px;"></div>
+
+<div *ngIf="rota">
+  <pre>
+    distance: {{ rota.distance }}
+    duration: {{ rota.duration }}
+  </pre>
+
+  <div class="form">
+    <div class="dx-fieldset">
+      <div class="dx-field">
+        <div class="dx-field-label"><b>Pedágios</b></div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">
+          <a [href]="linkRota" target="_blank">Link da rota</a>
+        </div>
+      </div>
+      <div class="dx-field" *ngFor="let pedagio of pedagios">
+        <div class="dx-field-label">
+          <a
+            href="https://maps.google.com/maps?q={{ pedagio.pedagio.lat }},{{
+              pedagio.pedagio.lon
+            }}"
+            target="_blank"
+          >
+            {{ pedagio.nome }}
+          </a>
+        </div>
+        <div class="dx-field-label">{{ pedagio.custo }}</div>
+      </div>
+    </div>
+  </div>
+</div>

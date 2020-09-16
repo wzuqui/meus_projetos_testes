@@ -13,7 +13,7 @@ import { GraficoComponent } from './componentes/dashboard/grafico/grafico.compon
   declarations: [
     AppComponent,
     AbaComponent,
-    GraficoComponent,
+    GraficoComponent
   ],
   entryComponents: [
     GraficoComponent
