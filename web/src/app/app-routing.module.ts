@@ -7,6 +7,9 @@ import {
   DxTileViewModule,
   DxScrollViewModule,
   DxSortableModule,
+  DxSelectBoxModule,
+  DxFormModule,
+  DxButtonModule,
 } from 'devextreme-angular';
 import { GridsterModule } from 'angular-gridster2';
 import { NgxdModule } from '@ngxd/core';
@@ -16,6 +19,7 @@ import { GrafoComponent } from './pages/grafo/grafo.component';
 import { PessoasComponent } from './pages/pessoas/pessoas.component';
 import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { RoterizadorComponent } from './pages/roterizador/roterizador.component';
 
 const routes: Routes = [
   {
@@ -51,16 +55,26 @@ const routes: Routes = [
       titulo: 'Dashboard'
     },
   },
+  {
+    path: 'roterizador',
+    component: RoterizadorComponent,
+    data: {
+      titulo: 'Roterizador'
+    }
+  }
 ];
 
 @NgModule({
-  declarations: [TelaInicialComponent, GrafoComponent, DashboardComponent],
+  declarations: [TelaInicialComponent, GrafoComponent, DashboardComponent, RoterizadorComponent],
   imports: [
     CommonModule,
     DxDiagramModule,
     DxScrollViewModule,
     DxSortableModule,
     DxTileViewModule,
+    DxSelectBoxModule,
+    DxFormModule,
+    DxButtonModule,
     GridsterModule,
     NgxdModule,
     RouterModule.forRoot(routes),
