@@ -12,6 +12,7 @@
           displayExpr="display_name"
           [searchMode]="'contains'"
           [searchExpr]="'display_name'"
+          [showClearButton]="true"
           [minSearchLength]="0"
           [searchEnabled]="true"
           [placeholder]="'Origem'"
@@ -28,6 +29,7 @@
           displayExpr="display_name"
           [searchMode]="'contains'"
           [searchExpr]="'display_name'"
+          [showClearButton]="true"
           [minSearchLength]="0"
           [searchEnabled]="true"
           [placeholder]="'Destino'"
@@ -51,7 +53,9 @@
   </div>
 </div>
 
-<div #mapa style="height: 600px;"></div>
+<div style="padding: 2rem">
+  <div #mapa style="height: 40vh;"></div>
+</div>
 
 <div *ngIf="rota">
   <pre>
