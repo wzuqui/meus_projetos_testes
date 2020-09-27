@@ -1,7 +1,6 @@
 import {
   Component,
   OnInit,
-  Inject,
   ViewChild,
   ElementRef,
   AfterViewInit,
@@ -163,7 +162,7 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
             .get(
               'https://nominatim.openstreetmap.org/search/?q=' +
                 this.origemDxSelectBox.text +
-                '&limit=5&format=json&addressdetails=1'
+                '&limit=15&format=json&addressdetails=1'
             )
             .toPromise();
         },
@@ -177,7 +176,7 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
             .get(
               'https://nominatim.openstreetmap.org/search/?q=' +
                 this.destinoDxSelectBox.text +
-                '&limit=5&format=json&addressdetails=1'
+                '&limit=15&format=json&addressdetails=1'
             )
             .toPromise();
         },

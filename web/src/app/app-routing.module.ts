@@ -10,6 +10,7 @@ import {
   DxSelectBoxModule,
   DxFormModule,
   DxButtonModule,
+  DxTextBoxModule,
 } from 'devextreme-angular';
 import { GridsterModule } from 'angular-gridster2';
 import { NgxdModule } from '@ngxd/core';
@@ -20,6 +21,7 @@ import { PessoasComponent } from './pages/pessoas/pessoas.component';
 import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RoterizadorComponent } from './pages/roterizador/roterizador.component';
+import { LeafletDecodeComponent } from './pages/leaflet-decode/leaflet-decode.component';
 
 const routes: Routes = [
   {
@@ -61,11 +63,18 @@ const routes: Routes = [
     data: {
       titulo: 'Roterizador'
     }
+  },
+  {
+    path: 'leaflet-decode',
+    component: LeafletDecodeComponent,
+    data: {
+      titulo: 'Leaflet decode'
+    }
   }
 ];
 
 @NgModule({
-  declarations: [TelaInicialComponent, GrafoComponent, DashboardComponent, RoterizadorComponent],
+  declarations: [TelaInicialComponent, GrafoComponent, DashboardComponent, RoterizadorComponent, LeafletDecodeComponent],
   imports: [
     CommonModule,
     DxDiagramModule,
@@ -75,6 +84,7 @@ const routes: Routes = [
     DxSelectBoxModule,
     DxFormModule,
     DxButtonModule,
+    DxTextBoxModule,
     GridsterModule,
     NgxdModule,
     RouterModule.forRoot(routes),
