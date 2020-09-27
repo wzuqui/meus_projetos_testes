@@ -6,7 +6,7 @@
 # Meus Projetos Teste
 
 Exemplo das telas
-![alt text](./github/screens.png "Screens")
+![alt text](.github/screens.jpg "Screens")
 
 
 ## 👨🏼‍💻 Projeto
