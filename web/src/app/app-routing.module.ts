@@ -11,6 +11,7 @@ import {
   DxFormModule,
   DxButtonModule,
   DxTextBoxModule,
+  DxDataGridModule,
 } from 'devextreme-angular';
 import { GridsterModule } from 'angular-gridster2';
 import { NgxdModule } from '@ngxd/core';
@@ -74,10 +75,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [TelaInicialComponent, GrafoComponent, DashboardComponent, RoterizadorComponent, LeafletDecodeComponent],
+  declarations: [TelaInicialComponent, PessoasComponent, GrafoComponent, DashboardComponent, RoterizadorComponent, LeafletDecodeComponent],
   imports: [
     CommonModule,
     DxDiagramModule,
+    DxDataGridModule,
     DxScrollViewModule,
     DxSortableModule,
     DxTileViewModule,

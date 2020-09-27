@@ -1,1 +1,19 @@
-<p>pessoas works!</p>
+<dx-data-grid
+  [dataSource]="dataSource"
+  [showBorders]="true"
+  [repaintChangesOnly]="true"
+  >
+  <dxo-scrolling mode="virtual"></dxo-scrolling>
+  <dxo-editing
+    mode="cell"
+    refreshMode="full"
+    [allowAdding]="true"
+    [allowUpdating]="true"
+    [allowDeleting]="true"
+  >
+  </dxo-editing>
+
+  <dxi-column dataField="id"></dxi-column>
+  <dxi-column dataField="nome"></dxi-column>
+  <dxi-column dataField="idade"></dxi-column>
+</dx-data-grid>
