@@ -1,0 +1,8 @@
+<form (submit)="acaoEnviar($event, mensagem)">
+  <input #mensagem />
+</form>
+
+<div *ngFor="let mensagem of mensagens">
+  <b>Usuário:</b> {{mensagem.id}} |
+  <b>Mensagem:</b>  {{mensagem.mensagem}}
+</div>

@@ -1,0 +1,9 @@
+{
+  "/socket.io/": {
+    "target": "https://3333-cc4ad052-071e-48b2-8d8e-6e256f4fd413.ws-us02.gitpod.io/",
+    "secure": false,
+    "ws": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

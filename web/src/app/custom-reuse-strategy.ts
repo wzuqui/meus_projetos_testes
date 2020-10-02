@@ -14,19 +14,27 @@ export class CustomReuseStrategy implements RouteReuseStrategy {
   }
 
   store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
-    this.handlers[route.routeConfig.path] = handle;
+    if (route.routeConfig?.path) {
+      this.handlers[route.routeConfig.path] = handle;
+    }
   }
 
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
-    return !!route.routeConfig && !!this.handlers[route.routeConfig.path];
+    if (route.routeConfig?.path) {
+      return !!route.routeConfig && !!this.handlers[route.routeConfig.path];
+    }
+    return false;
   }
 
-  retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
+  retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
     if (!route.routeConfig) {
       return null;
     }
-    this.abertas[route.routeConfig.path] = route.routeConfig.path;
-    return this.handlers[route.routeConfig.path];
+    if (route.routeConfig.path) {
+      this.abertas[route.routeConfig.path] = route.routeConfig.path;
+      return this.handlers[route.routeConfig.path];
+    }
+    return null;
   }
 
   shouldReuseRoute(

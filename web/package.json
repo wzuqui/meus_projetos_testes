@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --disableHostCheck=true",
+    "start": "ng serve --disableHostCheck=true --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -29,6 +29,7 @@
     "leaflet": "^1.7.1",
     "leaflet.awesome-markers": "^2.0.5",
     "rxjs": "~6.6.0",
+    "socket.io-client": "^2.3.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
@@ -42,6 +43,7 @@
     "@types/leaflet.awesome-markers": "^2.0.24",
     "@types/mapbox__polyline": "^1.0.1",
     "@types/node": "^12.11.1",
+    "@types/socket.io-client": "^1.4.34",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",

@@ -23,6 +23,7 @@ import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.componen
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RoterizadorComponent } from './pages/roterizador/roterizador.component';
 import { LeafletDecodeComponent } from './pages/leaflet-decode/leaflet-decode.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -71,11 +72,26 @@ const routes: Routes = [
     data: {
       titulo: 'Leaflet decode'
     }
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
+    data: {
+      titulo: 'Chat WebSocket'
+    }
   }
 ];
 
 @NgModule({
-  declarations: [TelaInicialComponent, PessoasComponent, GrafoComponent, DashboardComponent, RoterizadorComponent, LeafletDecodeComponent],
+  declarations: [
+    TelaInicialComponent,
+    PessoasComponent,
+    GrafoComponent,
+    DashboardComponent,
+    RoterizadorComponent,
+    LeafletDecodeComponent,
+    ChatComponent
+  ],
   imports: [
     CommonModule,
     DxDiagramModule,

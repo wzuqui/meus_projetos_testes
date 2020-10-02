@@ -28,6 +28,12 @@ interface PedagioNomeCusto {
   custo: string;
 }
 
+type Pedagios = ({
+    pedagio: Pedagio;
+    custo: string;
+    nome: string;
+} | undefined)[];
+
 @Component({
   selector: 'app-roterizador',
   templateUrl: './roterizador.component.html',
@@ -41,7 +47,7 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
   origemDataSource: DataSource;
   destinoDataSource: DataSource;
   rota: Route;
-  pedagios: PedagioNomeCusto[] = [];
+  pedagios: Pedagios = [];
   linkRota: string;
   mapa: L.Map;
   tiles: L.TileLayer;
@@ -89,10 +95,10 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private _adicionarPedagiosMapa(pedagiosEncontrados: PedagioNomeCusto[]): void {
+  private _adicionarPedagiosMapa(pedagiosEncontrados: Pedagios): void {
     this.pedagiosMarker?.map((p) => p.remove());
 
-    this.pedagiosMarker = pedagiosEncontrados.map(({ pedagio, nome, custo }) => {
+    this.pedagiosMarker = pedagiosEncontrados.filter(p => !!p).map(p => p as PedagioNomeCusto).map(({ pedagio, nome, custo }) => {
       const icon = L.AwesomeMarkers.icon({
         icon: 'dollar',
         markerColor: 'blue',
@@ -123,13 +129,12 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
     this.mapa.fitBounds(this.polyline.getBounds());
   }
 
-  private _obterPedagios(nodes: number[]): PedagioNomeCusto[] {
-    return pedagios.osm.node
-      .map((node) => {
+  private _obterPedagios(nodes: number[]): Pedagios {
+    const retorno = pedagios.osm.node?.map((node) => {
         const pedagio = (node as any) as Pedagio;
         const id = Number(pedagio.id);
-        const nomes: string[] = [];
-        let custo: string = null;
+        const nomes: (string | undefined)[] = [];
+        let custo: string | null | undefined = null;
 
         if (pedagio.tag instanceof Array) {
           custo = pedagio.tag.find((p) => p.k === 'charge')?.v;
@@ -149,8 +154,8 @@ export class RoterizadorComponent implements OnInit, AfterViewInit {
             nome: nomes.join(' - ').trim(),
           };
         }
-      })
-      .filter((p) => p);
+    });
+    return retorno;
   }
 
   private _configuraDataSource(): void {
